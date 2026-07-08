@@ -19,9 +19,7 @@ CREATE TABLE clientes (
     nome VARCHAR(150) NOT NULL,
     cpf VARCHAR(14) UNIQUE,
     email VARCHAR(150) NOT NULL UNIQUE,
-    data_cadastro DATE NOT NULL DEFAULT CURRENT_DATE,
-    login VARCHAR(255) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL
+    data_cadastro DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
 CREATE TABLE emprestimos (
