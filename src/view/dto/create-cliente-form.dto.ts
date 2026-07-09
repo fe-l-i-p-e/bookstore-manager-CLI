@@ -1,6 +1,6 @@
 import { ConsoleFormSchema } from '../../@common/view/console.view'
 
-export class CreateUserDto {
+export class CreateClienteDto {
   constructor(
     public login: string,
     public senha: string,

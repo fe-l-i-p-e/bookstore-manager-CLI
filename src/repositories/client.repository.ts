@@ -18,6 +18,19 @@ export class ClienteRepository {
     return rows[0]
   }
 
+  async findByEmail(email: string): Promise<Cliente | null> {
+    const { rows } = await this.pool.query<Cliente>(
+      'SELECT * FROM clientes WHERE email = $1',
+      [email]
+    )
+
+    if (rows.length === 0) {
+      return null
+    }
+
+    return rows[0]
+  }
+
   async findAll(): Promise<Cliente[]> {
     const { rows } = await this.pool.query<Cliente>(
       'SELECT * FROM clientes ORDER BY id'
