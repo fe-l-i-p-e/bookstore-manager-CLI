@@ -50,9 +50,12 @@ export abstract class ConsoleView {
       }
 
       if (schema.type === 'number') {
-        this.display('Digite um número válido! Tente novamente...')
         const n = Number(response)
-        return [!Number.isNaN(n), n]
+        if(Number.isNaN(n)) {
+          this.display("Digite um número válido!. Tente novamente....")
+          return [false,n]
+        }
+        return [true, n]
       }
 
       if (

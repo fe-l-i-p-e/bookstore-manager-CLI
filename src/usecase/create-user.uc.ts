@@ -1,6 +1,6 @@
 import { Usuario } from '../model/user'
 import { UserRepository } from '../repositories/user.repository'
-import { CreateUserDto } from '../view/dto/create-user-form.dto'
+import { CreateUserDto } from '../view/dto/create-emprestimo-form.dto'
 
 export class CreateUserUseCase {
   constructor(private readonly repository: UserRepository) {}

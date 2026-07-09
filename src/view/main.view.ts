@@ -1,7 +1,7 @@
-import { CreateUserDto } from './dto/create-user-form.dto'
 import { ConsoleView } from '../@common/view/console.view'
 import { CreateUserUseCase } from '../usecase/create-user.uc'
-
+import { CreateAutorDto } from './dto/create-autor-form.dto'
+import { CreateEmprestimoDto } from './dto/create-emprestimo-form.dto'
 export class MainView extends ConsoleView {
   constructor(private readonly createUserUc: CreateUserUseCase) {
     super(true)
@@ -16,8 +16,8 @@ export class MainView extends ConsoleView {
 
     const createUserDto = await this.promptInteractiveForm(
       `Informe os dados do usuário`,
-      CreateUserDto.schema(),
-      CreateUserDto
+      CreateAutorDto.schema(),
+      CreateAutorDto
     )
 
     const userOrError = await this.createUserUc
