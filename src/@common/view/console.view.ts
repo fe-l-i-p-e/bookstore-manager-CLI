@@ -225,7 +225,7 @@ export abstract class ConsoleView {
         this.showError(error)
       }
       this.display('View exiting with error')
-      await this.prompt('Press ENTER to continue:')
+      await this.prompt("Press ENTER to continue:");
     }
   }
 }

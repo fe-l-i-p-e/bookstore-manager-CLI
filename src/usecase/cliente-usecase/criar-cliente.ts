@@ -1,6 +1,6 @@
-import { Cliente } from "../model/cliente/modelCliente";
-import { ClienteRepository } from "../repositories/client.repository";
-import { CreateClienteDto } from "../view/dto/create-cliente-form.dto";
+import { Cliente } from "../../model/cliente/modelCliente";
+import { ClienteRepository } from "../../repositories/client.repository";
+import { CreateClienteDto } from "../../view/dto/create-cliente-form.dto";
 
 export class CriarClienteUseCase {
   constructor(private readonly repository: ClienteRepository) {}

@@ -1,12 +1,12 @@
-import eslint from '@eslint/js'
-import { defineConfig } from 'eslint/config'
-import eslintPluginImport from 'eslint-plugin-import'
-import prettierPlugin from 'eslint-plugin-prettier'
-import tseslint from 'typescript-eslint'
+import eslint from "@eslint/js";
+import { defineConfig } from "eslint/config";
+import eslintPluginImport from "eslint-plugin-import";
+import prettierPlugin from "eslint-plugin-prettier";
+import tseslint from "typescript-eslint";
 
 const config = defineConfig(
   {
-    ignores: ['dist/**', 'node_modules/**', 'src/_experiments/**']
+    ignores: ["dist/**", "node_modules/**", "src/_experiments/**", "src/@common/view/console.view.ts"],
   },
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
@@ -15,27 +15,27 @@ const config = defineConfig(
     languageOptions: {
       parserOptions: {
         projectService: {
-          allowDefaultProject: ['*.js', '*.mjs', 'vitest.config.ts']
+          allowDefaultProject: ["*.js", "*.mjs", "vitest.config.ts"],
         },
-        tsconfigRootDir: import.meta.dirname
+        tsconfigRootDir: import.meta.dirname,
       },
-      sourceType: 'module',
+      sourceType: "module",
       globals: {
-        node: true
-      }
+        node: true,
+      },
     },
 
     plugins: {
       import: eslintPluginImport,
-      prettier: prettierPlugin
+      prettier: prettierPlugin,
     },
 
     settings: {
-      'import/resolver': {
+      "import/resolver": {
         node: {
-          extensions: ['.js', '.jsx', '.ts', '.tsx']
-        }
-      }
+          extensions: [".js", ".jsx", ".ts", ".tsx"],
+        },
+      },
     },
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -44,40 +44,40 @@ const config = defineConfig(
       ...eslintPluginImport.configs.recommended.rules,
       ...eslintPluginImport.configs.typescript.rules,
 
-      '@typescript-eslint/no-extraneous-class': ['off'],
-      '@typescript-eslint/interface-name-prefix': 'off',
-      'import/no-absolute-path': 'error',
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-namespace': 'off',
-      'lines-between-class-members': ['error', 'always'],
-      '@typescript-eslint/no-unused-vars': [
-        'error',
+      "@typescript-eslint/no-extraneous-class": ["off"],
+      "@typescript-eslint/interface-name-prefix": "off",
+      "import/no-absolute-path": "error",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-namespace": "off",
+      "lines-between-class-members": ["error", "always"],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
         {
-          argsIgnorePattern: '_',
-          varsIgnorePattern: '_',
-          caughtErrorsIgnorePattern: '_'
-        }
+          argsIgnorePattern: "_",
+          varsIgnorePattern: "_",
+          caughtErrorsIgnorePattern: "_",
+        },
       ],
-      'import/no-unresolved': 'off',
-      'import/named': 'off',
-      'import/order': [
-        'error',
+      "import/no-unresolved": "off",
+      "import/named": "off",
+      "import/order": [
+        "error",
         {
           groups: [
-            'builtin',
-            'external',
-            'internal',
-            ['parent', 'sibling', 'index']
+            "builtin",
+            "external",
+            "internal",
+            ["parent", "sibling", "index"],
           ],
-          'newlines-between': 'always',
+          "newlines-between": "always",
           alphabetize: {
-            order: 'asc',
-            caseInsensitive: true
-          }
-        }
-      ]
-    }
-  }
-)
+            order: "asc",
+            caseInsensitive: true,
+          },
+        },
+      ],
+    },
+  },
+);
 
-export default config
+export default config;

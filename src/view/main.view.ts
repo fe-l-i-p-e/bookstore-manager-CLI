@@ -1,6 +1,7 @@
-import { ConsoleView } from "../@common/view/console.view";
-import { CriarClienteUseCase } from "../usecase/criar-cliente";
 import { CreateAutorDto } from "./dto/create-autor-form.dto";
+import { ConsoleView } from "../@common/view/console.view";
+import { CriarClienteUseCase } from "../usecase/cliente-usecase/criar-cliente";
+
 export class MainView extends ConsoleView {
   constructor(private readonly createUserUc: CriarClienteUseCase) {
     super(true);
