@@ -6,7 +6,12 @@ import tseslint from "typescript-eslint";
 
 const config = defineConfig(
   {
-    ignores: ["dist/**", "node_modules/**", "src/_experiments/**", "src/@common/view/console.view.ts"],
+    ignores: [
+      "dist/**",
+      "node_modules/**",
+      "src/_experiments/**",
+      "src/@common/view/console.view.ts",
+    ],
   },
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
