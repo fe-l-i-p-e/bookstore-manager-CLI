@@ -2,20 +2,16 @@ import { ConsoleFormSchema } from "../../@common/view/console.view";
 
 export class CreateClienteDto {
   constructor(
-    public login: string,
-    public senha: string,
-    public email: string,
     public nome: string,
     public cpf: string,
+    public email: string,
   ) {}
 
   static schema(): ConsoleFormSchema {
     return {
       nome: { type: "string", required: true },
+      cpf: { type: "string", required: false },
       email: { type: "string", required: true },
-      cpf: { type: "string", required: true },
-      login: { type: "string", required: true },
-      senha: { type: "string", required: true },
     };
   }
 }

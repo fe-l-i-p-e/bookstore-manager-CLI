@@ -1,4 +1,4 @@
-import { ClienteRepository } from "../repositories/client.repository";
+import { ClienteRepository } from "../../repositories/client.repository";
 
 export class RemoverClienteUseCase {
   constructor(private readonly repository: ClienteRepository) {}
