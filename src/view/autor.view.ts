@@ -1,9 +1,10 @@
 import { CreateAutorDto } from "./dto/create-autor-form.dto";
 import { ConsoleView } from "../@common/view/console.view";
+import { Autor } from "../model/autor/modelAutor";
 import { AtualizarAutorUseCase } from "../usecase/autor-usecase/atualizar-autor.uc";
-import { BuscarAutorPorIdUseCase } from "../usecase/autor-usecase/buscar-autor-por-idl.uc";
+import { BuscarAutorPorIdUseCase } from "../usecase/autor-usecase/buscar-autor-por-id.uc";
 import { CriarAutorUseCase } from "../usecase/autor-usecase/criar-autor.uc";
-import { ListarAutoresUseCase } from "../usecase/autor-usecase/listar-autor.uc";
+import { ListarAutoresUseCase } from "../usecase/autor-usecase/listar-autores.uc";
 import { RemoverAutorUseCase } from "../usecase/autor-usecase/remover-autor.uc";
 
 export class AutorView extends ConsoleView {
@@ -74,13 +75,13 @@ export class AutorView extends ConsoleView {
     }
 
     this.display(
-      `Autor "${autorOrError.nome}" cadastrado com sucesso! (ID: ${autorOrError.id !== undefined ? autorOrError.id.toString() : ""})`,
+      `Autor "${autorOrError.nome}" cadastrado com sucesso! (ID: ${String(autorOrError.id)})`,
     );
     await this.prompt("Pressione ENTER para continuar...");
   }
 
   private async listarAutores(): Promise<void> {
-    const autores = await this.listarAutoresUc.execute();
+    const autores: Autor[] = await this.listarAutoresUc.execute();
 
     if (autores.length === 0) {
       this.display("Nenhum autor cadastrado.");
@@ -94,6 +95,7 @@ export class AutorView extends ConsoleView {
         `ID: ${String(autor.id)} | Nome: ${autor.nome} | Nacionalidade: ${autor.nacionalidade ?? "-"}`,
       );
     }
+
     this.display("");
     await this.prompt("Pressione ENTER para continuar...");
   }
@@ -138,7 +140,7 @@ export class AutorView extends ConsoleView {
       return;
     }
 
-    this.display(`Autor atualizado com sucesso!`);
+    this.display("Autor atualizado com sucesso!");
     await this.prompt("Pressione ENTER para continuar...");
   }
 
